@@ -1,6 +1,6 @@
 # DELULU - Giao diện Người dùng (Frontend) Nền tảng Quản lý Sức khỏe Cá nhân
 
-![DELULU Hero Image](images/image_1fd790.jpg)
+![DELULU Hero Image](./assets/images/about-hero.png)
 
 **DELULU** là một dự án **giao diện người dùng (frontend)** được thiết kế để minh họa và trình bày ý tưởng về một hệ thống quản lý sức khỏe cá nhân. Giao diện này mô phỏng cách người dùng có thể tương tác với một nền tảng tiên tiến, nơi dữ liệu sức khỏe từ các nguồn như đồng hồ thông minh và thiết bị y tế được thu thập, quản lý và phân tích.
 
