@@ -724,7 +724,7 @@ ul {
  body {
    background-color: #f6f6f6;
  }
- .form-container {
+ .info-form-container {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -963,44 +963,110 @@ ul {
     padding: 5px;
 }
 
-/* Info Cards Grid (using distinct class names) */
-.app-info-cards-grid { /* Renamed from info-cards-grid */
+/* Đảm bảo các style này có trong style.css của bạn */
+
+.app-info-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
-    gap: 25px; /* Space between cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Có thể điều chỉnh minmax theo số lượng thẻ */
+    gap: 25px;
+    margin-top: 30px;
 }
 
-.app-info-card { /* Renamed from info-card */
+.app-info-card {
     background-color: #ffffff;
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease-in-out;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+    border: 1px solid #eee;
 }
 
 .app-info-card:hover {
-    transform: translateY(-5px); /* Subtle lift on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
-.app-info-card a { /* Renamed from info-card a */
-    display: block; /* Make the entire card clickable */
-    color: inherit; /* Inherit text color from parent */
-    text-decoration: none; /* Remove underline */
-}
-
-.app-info-card h3 { /* Renamed from info-card a h3 */
-    color: #333;
+.app-info-card h3 {
+    color: #6a0dad; /* Primary color for headings */
+    font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 10px;
-    font-size: 1.2em;
 }
 
-.app-info-card p { /* Renamed from info-card a p */
-    color: #777;
-    font-size: 0.9em;
+.app-info-card p {
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 8px;
     line-height: 1.5;
 }
 
+.app-info-card .status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background-color: #4CAF50; /* Green for connected */
+}
+
+.app-info-card .disconnected-indicator {
+    background-color: #f44336; /* Red for disconnected */
+}
+
+.app-info-card .device-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+}
+
+.app-info-card .device-action-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.app-info-card .btn-primary {
+    background-color: #6a0dad;
+    color: white;
+}
+
+.app-info-card .btn-primary:hover {
+    background-color: #512da8;
+}
+
+.app-info-card .btn-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.app-info-card .btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* Specific styling for the 'add new device' section when devices are connected */
+.add-device-section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    text-align: center;
+    margin-top: 40px; /* Space from connected devices */
+}
+
+.add-device-section h2 {
+    color: #6a0dad;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
 /* Help Article Specific Styles (using distinct class names) */
 .help-article-content { /* Renamed from help-article */
     background-color: #ffffff;
