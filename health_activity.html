@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thông Tin Hoạt Động Y Tế</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Hoạt Động Y Tế</h2>
+    <form action="#" method="POST">
+        <div class="input-group">
+            <label for="ngay">Ngày:</label>
+            <input type="date" id="ngay" name="ngay" required />
+        </div>
+
+        <div class="input-group">
+            <label for="trang_thai">Trạng Thái:</label>
+            <select id="trang_thai" name="trang_thai" required>
+                <option value="">Chọn trạng thái</option> 
+                <option value="hoan_thanh">Hoàn Thành</option>
+                <option value="dang_tien_hanh">Đang Tiến Hành</option>
+                <option value="huy_bo">Hủy Bỏ</option>
+                <option value="sap_toi">Sắp Tới</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="muc_dich">Mục Đích Đến Bệnh Viện:</label>
+            <input list="muc_dich-options" id="muc_dich" name="muc_dich" placeholder="Nhập mục đích (hoặc chọn trong danh sách)" required />
+            <datalist id="muc_dich-options">
+                <option value="Khám Bệnh" />
+                <option value="Xét Nghiệm" />
+                <option value="Điều Trị" />
+                <option value="Tái Khám" />
+                <option value="Tiêm Ngừa" />
+                <option value="Tư Vấn Dinh Dưỡng" />
+                <option value="Vật Lý Trị Liệu" />
+                <option value="Khám Sức Khỏe Định Kỳ" />
+                <option value="Cấp Cứu" />
+                <option value="Phẫu Thuật" />
+                <option value="Nội Soi" />
+                <option value="Siêu Âm" />
+                <option value="Chụp X-quang" />
+                <option value="Điện Tim" />
+                <option value="Tầm Soát Ung Thư" />
+                <option value="Khám Nha Khoa" />
+                <option value="Khám Mắt" />
+                <option value="Khám Tai Mũi Họng" />
+                <option value="Khám Phụ Khoa" />
+                <option value="Khám Nhi" />
+                <option value="Khám Da Liễu" />
+                <option value="Khám Tâm Lý" />
+                <option value="Chăm Sóc Hậu Phẫu" />
+                <option value="Mua Thuốc" />
+                <option value="Khác" />
+            </datalist>
+        </div>
+
+        <div class="input-group">
+            <label for="ghi_chu">Ghi Chú:</label>
+            <textarea id="ghi_chu" name="ghi_chu" placeholder="Nhập ghi chú" ></textarea>
+        </div>
+
+      <button type="submit" class="submit-button" style="margin-left: auto;">Lưu</button>
+    </form>
+  </div>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign-Up Form</title>
+  <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+  <div class="sign-up-container">
+    <div class="sign-up-image-container"></div>
+    <div class="form-container sign-up-form">
+      <h2 class="sign-up-header">Bắt Đầu Ngay</h2>
+      <form action="#" method="POST">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Nhập email" required>
+        </div>
+
+        <div class="input-group">
+          <label for="username">Tên Đăng Nhập</label>
+          <input type="text" id="username" placeholder="Nhập tên đăng nhập" required>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Mật Khẩu</label>
+          <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+        </div>
+
+        <div class="input-group">
+          <label for="confirm-password">Xác Nhận Mật Khẩu</label>
+          <input type="password" id="confirm-password" placeholder="Xác nhận mật khẩu" required>
+        </div>
+
+        <button class="submit-button"><a href="home.html">Đăng Ký</a></button>
+      </form>
+
+      <div class="alternative-login">
+        <div class="or-grp">
+          <hr class="or-line">
+          <p class="or-text">or</p>
+        </div>
+        <div class="oauth-login">
+          <button class="oauth-btn google-btn"><a href="home.html">Đăng Ký với Google</a></button>
+          <button class="oauth-btn apple-btn"><a href="home.html">Đăng Ký với Apple</a></button>
+        </div>
+        <p class="login-link">Đã có tài khoản? <a href="./index.html">Đăng Nhập</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

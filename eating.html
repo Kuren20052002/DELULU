@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ăn Uống</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* Essential CSS for form-container to expand and have proper layout */
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Adjust this as needed, or remove for fluid width */
+            margin: 20px auto; /* Center the form */
+            /* Add overflow to ensure background expands with floated or absolutely positioned content */
+            overflow: auto; /* Or use display: flow-root; for modern browsers */
+            /* Alternatively, if using flexbox or grid for children: */
+            /* display: flex; flex-direction: column; */
+        }
+
+        /* Margin between meal entries */
+        .meal-entry {
+            border-radius: 6px;
+            margin-bottom: 20px; /* This adds the 20px margin between meals */
+            background-color: white;
+        }
+
+        /* Remove margin from the last meal entry to avoid extra space at the bottom */
+        .meal-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        /* General input and label styling for consistency (copy from your style.css if already there) */
+        .input-group {
+            margin-bottom: 20px; /* Space between input groups */
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .input-group select {
+            background-image: url('data:image/svg+xml;utf8,<svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position-x: 95%;
+            background-position-y: 50%;
+            cursor: pointer;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Calorie controls specific styles */
+        .calorie-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .calorie-controls input[type="number"] {
+            flex-grow: 1;
+            text-align: left;
+            width: auto; /* Override general input width for flex behavior */
+        }
+
+        .calorie-controls button {
+            background: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #777;
+            font-size: 1.2em;
+            padding: 5px 8px;
+            line-height: 1;
+            margin-left: 5px;
+        }
+
+        .calorie-controls button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Form actions buttons */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .add-meal-button, .submit-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            flex-grow: 1;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .add-meal-button {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        .add-meal-button:hover {
+            background-color: #d0d0d0;
+        }
+
+        .submit-button {
+            background-color: #673ab7;
+            color: white;
+        }
+
+        .submit-button:hover {
+            background-color: #512da8;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Ăn Uống</h2>
+        <form action="#" method="POST">
+            <div id="meal-entries">
+                <div class="meal-entry" id="meal-1">
+                    <h3>Bữa 1:</h3>
+                    <div class="eating-form">
+                        <div class="input-group">
+                            <label for="thoi_gian_1">Thời Gian:</label>
+                            <input type="datetime-local" id="thoi_gian_1" name="thoi_gian_1" placeholder="DD/MM/YYYY hh:mm" required />
+                        </div>
+                        <div class="input-group">
+                            <label for="loai_bua_1">Ăn:</label>
+                            <select id="loai_bua_1" name="loai_bua_1" required>
+                                <option value="">Chọn loại bữa</option>
+                                <option value="Sáng">Sáng</option>
+                                <option value="Trưa">Trưa</option>
+                                <option value="Tối">Tối</option>
+                                <option value="Phụ">Phụ</option>
+                                <option value="Ăn vặt">Ăn vặt</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="calories_1">Calories:</label>
+                            <div class="calorie-controls">
+                                <input type="number" id="calories_1" name="calories_1" placeholder="Nhập lượng calo" min="0" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="add-meal-button" id="add-meal-btn">Thêm Bữa</button>
+                <button type="submit" class="submit-button">Lưu</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let mealCount = 1;
+            const mealEntriesContainer = document.getElementById('meal-entries');
+            const addMealBtn = document.getElementById('add-meal-btn');
+
+            // Function to setup increment/decrement for calorie input
+            function setupCalorieControls(mealEntryElement) {
+                // Select elements within the current mealEntryElement to ensure uniqueness
+                const calorieInput = mealEntryElement.querySelector('.calorie-controls input[type="number"]');
+                const incrementButton = mealEntryElement.querySelector('.calorie-increment-btn');
+                const decrementButton = mealEntryElement.querySelector('.calorie-decrement-btn');
+
+                if (incrementButton && decrementButton && calorieInput) {
+                    incrementButton.addEventListener('click', function() {
+                        calorieInput.value = parseInt(calorieInput.value || 0) + 10; // Tăng 10 calo mỗi lần
+                    });
+
+                    decrementButton.addEventListener('click', function() {
+                        const currentValue = parseInt(calorieInput.value || 0);
+                        if (currentValue >= 10) { // Đảm bảo không âm và giảm theo 10
+                            calorieInput.value = currentValue - 10;
+                        } else if (currentValue > 0 && currentValue < 10) { // Nếu nhỏ hơn 10 nhưng lớn hơn 0, đặt về 0
+                            calorieInput.value = 0;
+                        }
+                    });
+                }
+            }
+
+            // Setup controls for initial meal
+            setupCalorieControls(document.getElementById('meal-1'));
+
+            // Function to add a new meal entry
+            addMealBtn.addEventListener('click', function() {
+                mealCount++;
+                const newMealEntry = document.createElement('div');
+                newMealEntry.classList.add('meal-entry');
+                newMealEntry.id = `meal-${mealCount}`;
+                newMealEntry.innerHTML = `
+                    <h3>Bữa ${mealCount}:</h3>
+                    <div class="eating-form">
+                        <div class="input-group">
+                            <label for="thoi_gian_${mealCount}">Thời Gian:</label>
+                            <input type="datetime-local" id="thoi_gian_${mealCount}" name="thoi_gian_${mealCount}" placeholder="DD/MM/YYYY hh:mm" required />
+                        </div>
+
+                        <div class="input-group">
+                            <label for="loai_bua_${mealCount}">Ăn:</label>
+                            <select id="loai_bua_${mealCount}" name="loai_bua_${mealCount}" required>
+                                <option value="">Chọn loại bữa</option>
+                                <option value="Sáng">Sáng</option>
+                                <option value="Trưa">Trưa</option>
+                                <option value="Tối">Tối</option>
+                                <option value="Phụ">Phụ</option>
+                                <option value="Ăn vặt">Ăn vặt</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="calories_${mealCount}">Calories:</label>
+                            <div class="calorie-controls">
+                                <input type="number" id="calories_${mealCount}" name="calories_${mealCount}" placeholder="Nhập lượng calo" min="0" required />
+                            </div>
+                        </div>
+                    </div>
+                `;
+                mealEntriesContainer.appendChild(newMealEntry);
+                setupCalorieControls(newMealEntry); // Setup controls for the new meal
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thông Tin Cá Nhân</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="form-container">
+  <h2>Thông Tin Cá Nhân</h2>
+  <form action="#" method="POST">
+      <div class="input-group">
+          <label for="ho_ten">Họ và Tên:</label>
+          <input type="text" id="ho_ten" name="ho_ten" placeholder="Nhập họ và tên" required>
+      </div>
+
+      <div class="input-group">
+          <label for="ngay_sinh">Ngày Sinh:</label>
+          <input type="date" id="ngay_sinh" name="ngay_sinh" placeholder="dd/mm/yyyy" required>
+      </div>
+
+      <div class="input-group">
+        <label>Giới Tính:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gioi_tinh" value="nu"> Nữ</label>
+          <label><input type="radio" name="gioi_tinh" value="nam" checked> Nam</label>
+        </div>
+      </div>
+
+      <div class="input-group">
+          <label for="tuoi">Tuổi:</label>
+          <div class="age-controls">
+              <input type="number" id="tuoi" name="tuoi" placeholder="Số tuổi" required>
+          </div>
+      </div>
+
+      <div class="input-group">
+          <label for="phone">Số Điện Thoại:</label>
+          <input class="tel-input" type="text" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+      </div>
+
+      <button type="submit" class="submit-button" style="margin-left: auto;"><a href="home.html">Lưu</a></button>
+  </form>
+</div>
+
+<script src="js/scripts.js"></script>
+
+<script>
+  const input = document.querySelector("#phone");
+  window.intlTelInput(input, {
+    initialCountry: "auto",
+    geoIpLookup: callback => {
+      fetch('https://ipapi.co/json')
+        .then(res => res.json())
+        .then(data => callback(data.country_code))
+        .catch(() => callback('us'));
+    },
+    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+  });
+</script>
+</body>
+</html>

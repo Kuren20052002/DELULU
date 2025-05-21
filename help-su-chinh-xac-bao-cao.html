@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn: Không nhận được nhắc nhở hoặc thông báo vận động</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="app-sidebar">
+        <div class="app-sidebar-logo">DLL</div>
+        <nav class="app-sidebar-nav">
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i></a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i></a></li>
+                <li><a href="#" class="current"><i class="fas fa-book-medical"></i></a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i></a></li>
+                <li><a href="#"><i class="fas fa-cog"></i></a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i></a></li>
+            </ul>
+        </nav>
+        <div class="app-sidebar-bottom">
+            <a href="#"><i class="fas fa-user-circle"></i></a>
+        </div>
+    </aside>
+
+    <div class="app-main-content">
+        <section class="app-help-header">
+            <h1>Bạn cần giúp gì?</h1>
+            <form class="app-search-area" action="https://www.google.com/search" method="GET" target="_blank">
+                <input type="text" class="app-search-input" name="q" placeholder="Thắc mắc của bạn">
+                <button type="submit" class="app-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </section>
+
+        <section class="help-article-content">
+            <h2>Khắc phục sự cố: Không nhận được nhắc nhở hoặc thông báo vận động</h2>
+            <p>Hệ thống DELULU được trang bị khả năng kích hoạt cảnh báo và nhắc nhở dựa trên hồ sơ cá nhân của bạn, bao gồm nhắc uống thuốc và các thông báo vận động. Nếu bạn không nhận được những thông báo này, hãy kiểm tra các cài đặt sau:</p>
+
+            <h3>1. Kiểm tra cài đặt thông báo của ứng dụng DELULU</h3>
+            <p>Đầu tiên, hãy đảm bảo rằng bạn đã bật thông báo cho ứng dụng DELULU trong cài đặt của điện thoại.</p>
+            <ul>
+                <li><strong>Trên Android:</strong> Vào Cài đặt > Ứng dụng > DELULU > Thông báo (Notifications) và đảm bảo "Hiển thị thông báo" đã được bật. Kiểm tra từng loại thông báo (ví dụ: nhắc nhở hoạt động, nhắc nhở thuốc) nếu có tùy chọn chi tiết.</li>
+                <li><strong>Trên iOS:</strong> Vào Cài đặt > Thông báo > DELULU và đảm bảo "Cho phép thông báo" đã được bật. Kiểm tra các kiểu cảnh báo (biểu ngữ, trung tâm thông báo, màn hình khóa) và âm thanh.</li>
+            </ul>
+
+            <h3>2. Kiểm tra cài đặt trong ứng dụng DELULU</h3>
+            <p>DELULU có thể có các cài đặt thông báo riêng biệt trong chính ứng dụng. Hãy truy cập các mục này để tùy chỉnh.</p>
+            <ul>
+                <li>Mở ứng dụng DELULU, vào phần "Cài đặt" hoặc "Thiết lập".</li>
+                <li>Tìm mục "Thông báo", "Nhắc nhở" hoặc "Cảnh báo".</li>
+                <li>Đảm bảo các loại nhắc nhở bạn muốn nhận (ví dụ: nhắc nhở vận động, nhắc nhở uống thuốc, nhắc nhở giấc ngủ) đã được bật và được cấu hình đúng thời gian.</li>
+            </ul>
+
+            <h3>3. Chế độ không làm phiền / Tiết kiệm pin</h3>
+            <p>Điện thoại của bạn có thể đang ở chế độ làm phiền hoặc chế độ tiết kiệm pin, điều này có thể ngăn ứng dụng gửi thông báo.</p>
+            <ul>
+                <li><strong>Chế độ Không làm phiền (Do Not Disturb - DND):</strong> Tắt chế độ DND hoặc thêm DELULU vào danh sách ngoại lệ.</li>
+                <li><strong>Chế độ tiết kiệm pin:</strong> Một số chế độ tiết kiệm pin có thể hạn chế hoạt động nền của ứng dụng, ảnh hưởng đến việc gửi thông báo. Thử tắt chế độ này hoặc cấp quyền cho DELULU chạy nền không bị hạn chế.</li>
+            </ul>
+
+            <h3>4. Kết nối và đồng bộ hóa dữ liệu</h3>
+            <p>Nhắc nhở vận động hoặc các lời khuyên dựa trên dữ liệu sức khỏe của bạn. Nếu dữ liệu không được đồng bộ hóa, hệ thống sẽ không có thông tin để đưa ra lời khuyên hoặc nhắc nhở phù hợp.</p>
+            <ul>
+                <li>Đảm bảo smartwatch của bạn đang kết nối và đồng bộ dữ liệu với DELULU. Tham khảo hướng dẫn "Dữ liệu sức khoẻ không đồng bộ hoá" nếu cần.</li>
+                <li>DELULU sử dụng dữ liệu từ InfluxDB và xử lý trên Memgraph để tạo ra các lời khuyên. Hãy đảm bảo luồng dữ liệu này không bị gián đoạn.</li>
+            </ul>
+
+            <h3>5. Cập nhật ứng dụng</h3>
+            <p>Đảm bảo bạn đang sử dụng phiên bản mới nhất của ứng dụng DELULU. Các bản cập nhật thường bao gồm các bản vá lỗi liên quan đến thông báo và hiệu suất.</p>
+
+            <p>Nếu bạn đã kiểm tra tất cả các bước trên mà vẫn không nhận được nhắc nhở hoặc thông báo, vui lòng liên hệ bộ phận hỗ trợ của chúng tôi kèm theo thông tin về kiểu điện thoại, phiên bản hệ điều hành và mô tả chi tiết về loại thông báo bạn không nhận được.</p>
+        </section>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

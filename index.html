@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign-Up Form</title>
+  <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+  <div class="sign-in-container">
+    <div class="sign-in-image-container"></div>
+    <div class="form-container sign-in-form">
+      <h2 class="sign-up-header" style="margin-bottom: 20px">Welcome Back!</h2>
+      <form action="./home.html" method="GET">
+        <div class="input-group">
+          <label for="username">Tên Đăng Nhập Hoặc Email</label>
+          <input type="text" id="username" placeholder="Nhập thông tin đăng nhập" required>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Mật Khẩu</label>
+          <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+        </div>
+
+        <button class="submit-button">Đăng Nhập</button>
+      </form>
+
+      <div class="alternative-login">
+        <div class="or-grp">
+          <hr class="or-line">
+          <p class="or-text">or</p>
+        </div>
+        <div class="oauth-login">
+          <button class="oauth-btn google-btn"><a href="home.html">Đăng Nhập với Google</a></button>
+          <button class="oauth-btn apple-btn"><a href="home.html">Đăng Nhập với Apple</a></button>
+        </div>
+        <p class="login-link">Chưa có tài khoản? <a href="./sign-up.html">Đăng Ký</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Available</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f4f8;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 5em;
+            color: #61ffe5;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            background-color: #9bffd5;
+            color: rgb(0, 0, 0);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ffffff;
+        }
+
+        .button:focus {
+            outline: none;
+        }
+
+        /* Gradient animation */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(45deg, #361bbd, #67edff); /* Initial gradient */
+            background-size: 200% 200%; /* Make the gradient larger than the container */
+            animation: backgroundAnimation 10s ease infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1>Chúng tôi xin lỗi</h1>
+        <p>Chức năng này vẫn chưa được triển khai</p>
+        <div>
+            <button class="button" onclick="goBack()">Go Back</button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back(); // This will take the user back to the previous page
+        }
+
+        // If you want to redirect to the homepage instead, use this code:
+        // function goBack() {
+        //     window.location.href = '/'; // Replace with the correct homepage URL
+        // }
+    </script>
+</body>
+</html>

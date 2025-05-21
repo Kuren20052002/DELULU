@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn: Dữ liệu sức khoẻ không đồng bộ hoá</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <section class="help-article-content">
+      <h2>Khắc phục sự cố: Dữ liệu sức khoẻ không đồng bộ hoá</h2>
+      <p>Nếu bạn đang gặp vấn đề khi dữ liệu sức khỏe từ smartwatch hoặc các thiết bị khác không được cập nhật hoặc đồng bộ hóa lên ứng dụng DELULU, hãy thử các bước khắc phục dưới đây. Dữ liệu thời gian thực từ đồng hồ thông minh được lưu trữ trong InfluxDB và sau đó được đưa qua Memgraph để xử lý.</p>
+
+      <h3>1. Kiểm tra kết nối Internet và Bluetooth</h3>
+      <p>Đảm bảo thiết bị đang chạy ứng dụng DELULU (điện thoại, máy tính bảng) và thiết bị sức khỏe của bạn có kết nối mạng và Bluetooth ổn định.</p>
+      <ul>
+          <li><strong>Kết nối Internet:</strong> Xác minh rằng bạn đang có Wi-Fi hoặc dữ liệu di động hoạt động tốt. Việc đồng bộ dữ liệu yêu cầu kết nối Internet để truyền tải thông tin đến và từ cơ sở dữ liệu đám mây.</li>
+          <li><strong>Kết nối Bluetooth:</strong> Đối với các thiết bị như smartwatch, đảm bảo Bluetooth trên điện thoại đã được bật và thiết bị đang nằm trong phạm vi kết nối. Kiểm tra trong cài đặt Bluetooth của điện thoại xem thiết bị có đang được kết nối với DELULU hay không.</li>
+      </ul>
+
+      <h3>2. Khởi động lại ứng dụng và thiết bị</h3>
+      <p>Một trong những bước khắc phục sự cố hiệu quả nhất là khởi động lại cả ứng dụng DELULU và thiết bị sức khỏe của bạn.</p>
+      <ul>
+          <li>Đóng hoàn toàn ứng dụng DELULU (buộc dừng ứng dụng) và mở lại.</li>
+          <li>Tắt và bật lại smartwatch hoặc thiết bị IoT y tế của bạn.</li>
+      </ul>
+
+      <h3>3. Cập nhật ứng dụng DELULU và phần mềm thiết bị</h3>
+      <p>Đảm bảo bạn luôn sử dụng phiên bản mới nhất của ứng dụng DELULU và phần mềm (firmware) trên các thiết bị sức khỏe. Các bản cập nhật thường bao gồm các bản vá lỗi đồng bộ hóa và cải thiện hiệu suất.</p>
+      <ul>
+          <li>Kiểm tra cửa hàng ứng dụng (App Store/Google Play Store) để tìm và cài đặt các bản cập nhật DELULU.</li>
+          <li>Tham khảo hướng dẫn của nhà sản xuất thiết bị để cập nhật phần mềm cho smartwatch hoặc thiết bị IoT y tế của bạn.</li>
+      </ul>
+
+      <h3>4. Kiểm tra quyền truy cập dữ liệu</h3>
+      <p>Ứng dụng DELULU cần có quyền truy cập vào dữ liệu sức khỏe từ các thiết bị và hệ thống của bạn. Đảm bảo rằng bạn đã cấp đầy đủ các quyền cần thiết trong cài đặt điện thoại.</p>
+      <ul>
+          <li><strong>Trên Android:</strong> Vào Cài đặt > Ứng dụng > DELULU > Quyền (Permissions) và đảm bảo các quyền liên quan đến sức khỏe, vị trí (nếu cần cho bước chân), và Bluetooth được cấp.</li>
+          <li><strong>Trên iOS:</strong> Vào Cài đặt > Quyền riêng tư & Bảo mật > Sức khỏe (Health) và đảm bảo DELULU có quyền đọc/ghi dữ liệu cần thiết.</li>
+      <li><strong>Kiểm tra quyền trong ứng dụng thiết bị:</strong> Một số thiết bị có ứng dụng riêng (ví dụ: Garmin Connect, Samsung Health) yêu cầu bạn cấp quyền cho DELULU kết nối với chúng.</li>
+      </ul>
+
+      <h3>5. Hủy ghép nối và ghép nối lại thiết bị</h3>
+      <p>Nếu các bước trên không giải quyết được vấn đề, bạn có thể thử hủy kết nối thiết bị khỏi DELULU và sau đó kết nối lại từ đầu.</p>
+      <ul>
+          <li>Trong ứng dụng DELULU, vào mục "Thiết bị đã kết nối" và chọn "Hủy ghép nối" hoặc "Xóa" thiết bị đang gặp vấn đề.</li>
+          <li>Sau đó, làm theo các bước trong hướng dẫn "Bắt đầu sử dụng DELULU" (Mục "Kết nối thiết bị sức khỏe") để ghép nối lại thiết bị.</li>
+      </ul>
+
+      <p>DELULU được thiết kế để đảm bảo luồng dữ liệu thông suốt từ InfluxDB (dữ liệu thời gian thực) đến Memgraph (dữ liệu xử lý) và hiển thị cho người dùng. Nếu bạn vẫn gặp sự cố sau khi thực hiện tất cả các bước này, vui lòng liên hệ bộ phận hỗ trợ kỹ thuật của chúng tôi kèm theo thông tin chi tiết về thiết bị và mô tả lỗi để được trợ giúp chuyên sâu.</p>
+  </section>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
